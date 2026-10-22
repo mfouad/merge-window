@@ -1,0 +1,55 @@
+# Site-wide settings: name, links, navigation and the announcement bar.
+name: Merge Window
+tagline: Open source signals for technical leaders
+description: A tech radar of emerging open source for CTOs, architects and technical leaders. Discovery and experimentation, not reviews.
+url: https://mergewindow.com
+author: Mohammad Hassan
+linkedin: https://www.linkedin.com/in/mfouad
+calendar: https://calendar.app.google/6JZGdr9TYifuqmZJ9
+ogImage: /assets/img/og-image.jpg
+
+# The button on the right of the header.
+cta: { label: Subscribe, url: /subscribe/ }
+
+announce:
+  label: NEW
+  text: "Radar vol. 1: AI Agent Gateways is out now"
+  url: /posts/ai-agent-gateways/
+
+# hideOnPhone: true drops the link on narrow screens to keep the header on one line.
+nav:
+  - { label: Start here, url: "/#start", hideOnPhone: true }
+  - { label: How it reads, url: "/#how", hideOnPhone: true }
+  - { label: Articles, url: /posts/ai-agent-gateways/, section: posts }
+  - { label: Course, url: /technical-executive/, section: course }
+  - { label: About, url: "/#about", hideOnPhone: true }
+
+# The two-column "Book a call / Follow along" band at the end of pages.
+connect:
+  call:
+    eyebrow: Talk it through
+    title: Book a call
+    text: Working through agents, tool access or governance in your own stack? Grab a slot on my calendar.
+  follow:
+    eyebrow: Follow along
+    title: Technical and software engineering strategy
+    text: I share notes for technical leaders on LinkedIn. Follow for the next radar entries.
+
+# The newsletter signup page (/subscribe/). Structure from the radar's release
+# format in CLAUDE.md. Connect Systeme.io the same way as the course form.
+newsletter:
+  eyebrow: The Merge Window newsletter
+  title: Get each radar release by email.
+  lead: Every one or two months, one email rolls up what changed on the radar, so you can spot the open source worth a look without tracking every launch.
+  includes:
+    - What was added, moved and removed on the radar
+    - "License Watch: license changes that matter"
+    - Boring tech worth reconsidering
+    - "From the Field: reports from the community"
+  form:
+    heading: Subscribe to the newsletter
+    button: Subscribe
+    note: Unsubscribe anytime.
+    systeme:
+      scriptId: ""
+      scriptSrc: ""

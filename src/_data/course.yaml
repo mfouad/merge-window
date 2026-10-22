@@ -1,0 +1,127 @@
+# The Technical Executive: a course for CTOs and engineering leaders.
+# Holds the course name, the signup form, the stage scale, the five topics,
+# and the wording for each course-page variant.
+
+name: The Technical Executive
+tagline: A course for CTOs, from the MVP to several teams.
+
+# Signup form. For Systeme.io: in your funnel, add an "Inline form" step, click
+# "Script", and copy the id and src from the <script> tag into the two fields.
+# Until then the page shows a preview form marked "not connected".
+form:
+  heading: Join The Technical Executive
+  button: Join the course
+  note: ""        # e.g. "Free email course. Unsubscribe anytime." once the format is decided
+  systeme:
+    scriptId: ""  # e.g. form-script-tag-1234567
+    scriptSrc: "" # e.g. https://yourdomain.systeme.io/public/remote/page/1234567.js
+
+# The company-stage scale the topics are placed on (left to right).
+# Team sizes are rough estimates: adjust them to match your experience.
+stages:
+  - { name: MVP, team: founding team }
+  - { name: Product-market fit, team: first hires }
+  - { name: Early scaling, team: "~5 engineers" }
+  - { name: Growing team, team: "5–10 engineers" }
+  - { name: Managers in place, team: "10+ engineers" }
+  - { name: Several teams, team: multiple teams }
+
+# from/to are positions on the stage scale above (1 = MVP, 6 = Several teams).
+topics:
+  - id: build
+    title: Building the right thing, the right way
+    pain: The team is either shipping fragile shortcuts or gold-plating systems nobody needs yet.
+    stage: From the MVP through early scaling.
+    from: 1
+    to: 3
+    items:
+      - title: Pragmatic architecture
+        text: How to balance shipping an MVP fast against over-engineering, including when to buy vs. build and when microservices or DDD are worth it.
+      - title: The laws that shape your system
+        text: How Conway's law, Brooks's law, and scaling patterns quietly decide your architecture and delivery speed.
+      - title: Managing technical debt
+        text: How to track tech, process, and talent debt and pay it down one area at a time.
+
+  - id: focus
+    title: Focus and prioritization
+    pain: Everything feels urgent, the team is spread thin, and nothing ships.
+    stage: Before and right after product-market fit.
+    from: 1
+    to: 2
+    items:
+      - title: Doing fewer things well
+        text: Why working in sequence beats spreading the team across parallel bets.
+      - title: Roadmaps without losing agility
+        text: How to add direction and structure without slowing the team down.
+      - title: Prioritization frameworks
+        text: How RICE, weighted shortest job first, and similar tools help you pick what to build next.
+      - title: Engineering's role in product-market fit
+        text: How to spot when you're building something nobody wants, and how to split effort between exploring and improving what works.
+
+  - id: lead
+    title: Leading as a CTO
+    pain: You're still the bottleneck, stuck in the code and pulled into every decision.
+    stage: When the team grows past 5 to 10 engineers and you move from hands-on lead to executive.
+    from: 4
+    to: 5
+    items:
+      - title: From engineer to executive
+        text: The shift from doing the work yourself to designing the system and the team that does it.
+      - title: Delegation done right
+        text: What you can hand off, what has to stay with you, and how to stop work from coming back to you.
+      - title: Protecting your time and leverage
+        text: How to get out of the weeds and spend your hours where they have the most impact.
+      - title: Working with the business
+        text: How to explain tech to non-technical people and handle enterprise demands like security reviews and compliance without derailing the roadmap.
+
+  - id: teams
+    title: Building and organizing teams
+    pain: Hiring is slow or hit-and-miss, and teams keep blocking each other.
+    stage: From the first hires through growing to several teams.
+    from: 2
+    to: 6
+    items:
+      - title: Team structure
+        text: How models like Team Topologies, pods, and matrix orgs work, and how to cut the dependencies between teams.
+      - title: Hiring engineers
+        text: How to make your first hires, attract committed people, and keep the bar high as you scale.
+      - title: Hiring engineering leaders
+        text: How to find managers you can trust to run on their own, and when a counteroffer makes sense.
+
+  - id: perform
+    title: Team performance and growth
+    pain: People don't know how to grow, reviews feel arbitrary, and low performance drags on too long.
+    stage: Once you have a team of 10 or more and managers in place.
+    from: 5
+    to: 6
+    items:
+      - title: Understanding your team
+        text: How personality and teamwork models help you see how people work best, build trust, and communicate clearly.
+      - title: Growth paths and pay
+        text: How to set up engineering ladders, simple reviews, and fair pay bands so people can see where they're headed.
+      - title: Raising team performance
+        text: How to tell skill gaps from motivation gaps, coach each one, and invest most in your highest-leverage people.
+      - title: Handling underperformance
+        text: How to diagnose what's going wrong, give a fair path to improve, and part ways well when it doesn't work out.
+
+# Wording for each page variant. src/technical-executive/index.md picks which one is live.
+variants:
+  pain:
+    label: A · Pain mirror
+    summary: Leads with the problems. Five "sounds familiar?" cards, then the stage map.
+    eyebrow: The Technical Executive · a course by Mohammad Hassan
+    title: The problems nobody warns you about when you become a CTO.
+    lead: A course on technology strategy and leadership, built from lessons learned in the field. It follows the job from shipping the first version to leading several teams.
+    sectionTitle: Sounds familiar?
+    sectionLead: Each module starts from a problem technical leaders run into, and the stage where it usually shows up.
+    closeTitle: From hands-on lead to technical executive.
+
+  stage:
+    label: B · Stage map
+    summary: Leads with growth stages. An interactive "where is your company now?" picker over the map.
+    eyebrow: The Technical Executive · a course by Mohammad Hassan
+    title: Every stage of growth breaks something new in engineering.
+    lead: What worked at five engineers stalls at fifteen. The Technical Executive is a course built from lessons learned in the field, organized by the stage where each problem tends to appear.
+    sectionTitle: Where is your company right now?
+    sectionLead: Pick a stage to see the modules that deal with what usually shows up there.
+    closeTitle: Learn for the stage you're in, and the one coming next.

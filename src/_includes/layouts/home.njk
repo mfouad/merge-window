@@ -1,0 +1,73 @@
+---
+layout: layouts/base.njk
+---
+<section class="hero"><div class="wrap hero-grid">
+<div class="hero-copy">
+<p class="eyebrow">{{ hero.eyebrow }}</p>
+<h1>{{ hero.title }}</h1>
+<p class="lead">{{ hero.lead }}</p>
+<div class="cta-row"><a class="btn amber" href="{{ hero.primary.url }}">{{ hero.primary.label }}</a><a class="btn ghost" href="{{ hero.secondary.url }}">{{ hero.secondary.label }}</a></div>
+</div>
+<div class="hero-art" aria-hidden="true">{% include "radar-art.svg" %}</div>
+</div>
+<div class="wrap"><dl class="stats">
+{%- for s in stats %}
+<div><dd>{{ s.value }}</dd><dt>{{ s.label }}</dt></div>
+{%- endfor %}
+</dl></div>
+</section>
+
+<section class="section thesis"><div class="wrap narrow">
+<h2>{{ thesis.title }}</h2>
+{{ thesis.text | md | safe }}
+</div></section>
+
+<section class="section" id="start"><div class="wrap">
+<p class="eyebrow">{{ start.eyebrow }}</p>
+<h2>{{ start.title }}</h2>
+<p class="sec-lead">{{ start.lead }}</p>
+<div class="paths">
+{%- for p in start.paths %}
+<div class="path"><p class="k">{{ loop.index | pad2 }} · {{ p.step }}</p><h3>{{ p.question }}</h3><ul>{% for l in p.links %}<li><a href="{{ l[1] }}">{{ l[0] }}</a></li>{% endfor %}</ul></div>
+{%- endfor %}
+</div>
+</div></section>
+
+{%- set post = collections.posts | last %}
+{%- if post %}
+<section class="section"><div class="wrap">
+<p class="eyebrow">{{ latest.eyebrow }}</p>
+<h2>{{ latest.title }}</h2>
+<a class="post-card" href="{{ post.url }}">
+<div class="txt"><p class="eyebrow">{{ post.data.card.eyebrow }}</p><h3>{{ post.data.card.title or post.data.title }}</h3><p>{{ post.data.card.summary or post.data.description }}</p>
+<div class="chips">{% for c in post.data.card.chips %}<span class="chip">{{ c }}</span>{% endfor %}</div><span class="go">READ THE POST →</span></div>
+{%- if post.data.card.image %}
+<div class="art"><img src="{{ post.data.card.image }}" alt="{{ post.data.card.imageAlt }}" loading="lazy"></div>
+{%- endif %}
+</a>
+</div></section>
+{%- endif %}
+
+<section class="section" id="how"><div class="wrap">
+<p class="eyebrow">{{ how.eyebrow }}</p>
+<h2>{{ how.title }}</h2>
+<p class="sec-lead">{{ how.lead }}</p>
+<div class="rings">
+{%- for r in radar.rings %}
+<div class="ring"><b class="{{ r.name | ringClass }}">{{ r.name }}</b><p>{{ r.text }}</p></div>
+{%- endfor %}
+</div>
+<div class="how">
+{%- for e in radar.evidence %}
+<div><h3>{{ e.name }}</h3><p>{{ e.text }}</p></div>
+{%- endfor %}
+</div>
+</div></section>
+
+<section class="section" id="about"><div class="wrap about">
+<div class="avatar" aria-hidden="true"><img src="/assets/img/logo-mark.svg" alt="" width="96" height="96"></div>
+<div><p class="eyebrow">About</p><h2>{{ about.title }}</h2>
+{{ about.text | md | safe }}</div>
+</div></section>
+
+<div class="wrap">{% include "connect.njk" %}</div>

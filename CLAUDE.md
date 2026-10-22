@@ -1,0 +1,144 @@
+# Merge Window
+
+A tech radar of emerging open source, published by Mohammad Hassan as LinkedIn posts and a newsletter.
+Tagline: **Open source signals for technical leaders.**
+
+## Audience and positioning
+
+- Readers are CTOs, architects and technical leaders who track and shape tech in their companies.
+- This is a **radar for discovery and experimentation, not a review.** Entries describe where a tool stands and why it's worth a look. They never hand down verdicts or tell readers what to do.
+- Older tools are welcome. If a tool has been around for years, say so openly ("around since 2019, but rarely discussed").
+- Credit community contributors by name ("Spotted by …").
+
+## My voice and preferences
+
+**Claude: before drafting anything, check this section.** If a field still says `[ASK ME]`, ask me about it first: a few short questions at a time, not all at once. Save my answers here, replacing the placeholder. When I edit a draft or correct your tone, suggest a one-line addition to this section so the next draft gets it right. Never invent my opinions or experiences.
+
+### About me
+- Role and background: [ASK ME]
+- Why I run Merge Window: [ASK ME]
+- Areas where I have real hands-on depth: [ASK ME]
+
+### How I write
+- Tone (for example: direct, curious, dry humor, teacherly): [ASK ME]
+- First person ("I tried…") or neutral ("This tool…"): [ASK ME]
+- Language(s) I publish in: [ASK ME]
+- Phrases I like to use: [ASK ME]
+- Words and phrases I never want to see: [ASK ME] (default: hype words such as "game-changer", "revolutionary", "unleash")
+- Emoji: [ASK ME] (default: none)
+- Hashtags: [ASK ME] (default: 3–5)
+- Post length: [ASK ME] (default: under 1,300 characters)
+
+### What I care about
+- Lenses I always look through (for example: cost, security, developer experience, self-hosting, vendor neutrality): [ASK ME]
+- Ecosystems and stacks I know best or favor: [ASK ME]
+- Topics out of scope: [ASK ME]
+- How I want to handle tools from companies I work with or for (disclosure): [ASK ME]
+
+### Examples
+- Links or pasted posts of mine that sound like me: [ASK ME]
+- Posts by others whose style I like, and what I like about them: [ASK ME]
+
+### Feedback log
+Add one line each time I correct a draft, with the date and what to do differently.
+- (empty)
+
+## Rings
+
+| Ring  | Meaning                         |
+|-------|---------------------------------|
+| ADOPT | Proven and ready to build on    |
+| PILOT | Worth experimenting with        |
+| WATCH | Early, worth keeping an eye on  |
+| PASS  | Interesting, but with caveats   |
+
+Every entry also carries an **evidence tag**: `hands-on` (I used it), `community` (someone in my network runs it), or `researched` (read and assessed, not yet used).
+
+Categories: Frameworks & Libraries · Dev Tools · Infra & Self-hosted · AI/ML · Data.
+
+## Data: the radar is the source of truth
+
+All content comes from `radar/entries/<slug>.md`, one file per tool, with this frontmatter:
+
+```yaml
+name: Bruno
+slug: bruno
+category: Dev Tools
+ring: PILOT
+evidence: hands-on
+url: https://github.com/usebruno/bruno
+license: MIT
+added: 2026-10-16
+history: [{date: 2026-10-16, ring: PILOT}]   # append whenever the ring changes
+credit: ""                                    # community contributor, if any
+```
+
+Body sections, kept short:
+**What it is** (one line, plus what it replaces or competes with) · **Why it's interesting now** · **Maturity & risk** (governance, license, contributors, release cadence) · **Adoption cost** · **Lock-in & exit** · **Where it fits** · **Notes** (2–3 sentences of observation, not a verdict).
+
+## Facts: always verify
+
+Before writing or updating an entry, check against the live GitHub repo or official site: license, latest release and its date, maintainer or foundation, and whether the project is active. Never guess figures such as stars, contributors, or dates. If a figure can't be verified, write `[CHECK]`. Watch for license changes, because they always matter to this audience.
+
+## Outputs
+
+**Commit post (LinkedIn, any cadence):** one to three entries. Write `posts/YYYY-MM-DD-<slug>.md` with:
+- a hook line that works before LinkedIn's "see more" cut (about 200 characters)
+- the entries in diff style:
+  ```
+  + Added: Bruno, open source API client (PILOT · hands-on)
+  ~ Moved: Bun, WATCH → PILOT
+  - Removed: X, project archived
+  ```
+- 2–4 short paragraphs of context
+- one question to the community
+- hashtags, following my preference above
+
+Keep the post within my preferred length.
+
+**Release (newsletter issue, every 1–2 months):** `issues/NNN.md`, numbered, never dated in the title. Structure:
+1. TL;DR: 3 bullets
+2. This release's diff: added, moved, removed
+3. Entries grouped by ring
+4. License Watch
+5. Boring Tech Worth Reconsidering
+6. From the Field: community reports
+7. Call for suggestions
+
+Also export `radar/radar.json` (all entries) so readers can fork it for their own internal radar.
+
+## Website
+
+Built with Eleventy. Edit `src/` and `public/`, never `site/` (it is generated by `npm run build`; `npm start` runs a live-reload preview on port 8090).
+
+- `src/index.md`: home page. All text lives in its frontmatter.
+- `src/_data/site.yaml`: name, links, nav, announcement bar, the "Book a call / Follow" band. `src/_data/radar.yaml`: rings and evidence tags.
+- `src/posts/<slug>/index.md`: one folder per article. Frontmatter holds title, dek, TL;DR, closing question and the home-page card.
+- `src/_data/course.yaml`: The Technical Executive course (separate from the newsletter): modules (pain, stage, lessons), the stage scale, its Systeme.io form, and the wording of each page variant. `src/technical-executive/index.md` picks the live variant; drafts are at `/technical-executive/a/` and `/b/`, listed at `/technical-executive/variants/` (noindex).
+- `src/subscribe/index.njk` + `newsletter:` in `site.yaml`: the newsletter signup page and its Systeme.io form.
+- `public/`: CSS, fonts, images, diagrams, favicons. Copied as-is.
+
+Articles are plain Markdown, styled automatically. No HTML in posts:
+- `## Heading {#id}` starts a numbered part; `### Heading {#id}` joins the table of contents. `toc="Short"` sets a shorter label.
+- An image on its own line becomes a figure; its title (`"…"`) is the caption.
+- A blockquote is a callout; a bold first line is its label.
+- A numbered list is styled as numbered questions. `{.small}` under a paragraph makes it a note.
+- Fenced blocks named `gate`, `layers`, `decide` hold YAML and render those components; `compare` and `platforms` (empty blocks) render the table and cards from `<slug>.11tydata.yaml` next to the post. Templates live in `src/_includes/components/`.
+
+## Brand
+
+- Colors: ink `#10151C`, paper `#F4F1EA`, amber accent `#E8A33D`. Designs must still work in grayscale.
+- Fonts: Source Serif 4 (headings), IBM Plex Sans (body), IBM Plex Mono (labels, rings, diff lines).
+- Logo: a git branch symbol over three radar rings, with the new-branch node filled in amber.
+- Image sizes: LinkedIn post 1080×1350, banner 1584×396, newsletter cover 1920×1080.
+
+## Commands to support
+
+- `setup`: walk me through every `[ASK ME]` field in "My voice and preferences" and fill them in.
+- `add <url>`: research the tool and create the entry file with verified facts.
+- `move <slug> <RING>`: update the ring and append to history.
+- `post <slugs…>`: draft a commit post.
+- `release`: roll up all changes since the last issue into the next numbered issue.
+- `check`: flag entries with stale releases (more than 12 months old), license changes, or archived repos.
+
+Always show drafts for review. Never publish anything.

@@ -1,0 +1,14 @@
+{#- All topics laid out as bars across the stage scale. Set `picker = true` before
+    including it to turn the stage headings into "where are you now?" buttons. #}
+<div class="smap-wrap" tabindex="0" role="region" aria-label="Topics by company stage, scrolls sideways on small screens">
+<div class="smap">
+{%- if picker %}
+<div class="smap-head stage-picker" role="group" aria-label="Pick your company's stage">{% for s in course.stages %}<button type="button" data-stage="{{ loop.index }}" aria-pressed="false"><b>{{ s.name }}</b>{{ s.team }}</button>{% endfor %}</div>
+{%- else %}
+<div class="smap-head">{% for s in course.stages %}<span><b>{{ s.name }}</b>{{ s.team }}</span>{% endfor %}</div>
+{%- endif %}
+{%- for t in course.topics %}
+<div class="smap-row" data-from="{{ t.from }}" data-to="{{ t.to }}"><span class="smap-bar t{{ loop.index }}" style="grid-column:{{ t.from }} / {{ t.to + 1 }}" title="{{ t.stage }}"><i>{{ loop.index | pad2 }}</i>{{ t.title }}</span></div>
+{%- endfor %}
+</div>
+</div>

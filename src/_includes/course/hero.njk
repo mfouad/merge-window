@@ -1,0 +1,10 @@
+{#- Headline on the left, signup card on the right. #}
+<section class="cr-hero"><div class="wrap cr-hero-grid">
+<div>
+<p class="eyebrow">{{ v.eyebrow }}</p>
+<h1>{{ v.title }}</h1>
+<p class="lead">{{ v.lead }}</p>
+<ul class="cr-topics-mini">{% for t in course.topics %}<li class="t{{ loop.index }}">{{ t.title }}</li>{% endfor %}</ul>
+</div>
+<div class="cr-card"><p class="eyebrow">{{ course.form.heading }}</p>{% set form = course.form %}{% include "signup-form.njk" %}</div>
+</div></section>

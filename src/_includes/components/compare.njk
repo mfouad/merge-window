@@ -1,0 +1,11 @@
+{#- Comparison table built from this post's platforms data (platforms.yaml next to the post). #}
+<div class="table-wrap" tabindex="0" role="region" aria-label="Platform comparison table, scrolls sideways on small screens">
+<table>
+<thead><tr><th>PROJECT</th><th>RING</th><th>LAYERS</th><th>APPROACH</th><th>GOVERNANCE</th><th>LICENSE</th><th>LATEST RELEASE</th></tr></thead>
+<tbody>
+{%- for p in platforms %}
+<tr><td>{% if p.repo %}<a href="#{{ p.id }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}{% if p.aka %}<br><span class="small" style="font-weight:400">{{ p.aka }}</span>{% endif %}</td><td><span class="ring-tag {{ p.ring | ringClass }}">{{ p.ring or "NOT PLACED" }}</span></td><td>{{ p.layers or "—" }}</td><td>{{ p.approach }}</td><td>{{ p.governance or "n/a" }}</td><td>{{ (p.licenseDetail or p.license or "n/a") | mdi }}</td><td>{% if p.release %}{{ p.release.version }} · {{ p.release.date }}{% else %}n/a{% endif %}</td></tr>
+{%- endfor %}
+</tbody>
+</table>
+</div>

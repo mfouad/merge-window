@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+permalink: /technical-executive/variants/
+title: Course page variants
+---
+<section class="section"><div class="wrap">
+<p class="eyebrow">Drafts · not linked from the site</p>
+<h1 class="variants-h">Course page variants</h1>
+<p class="sec-lead">Same modules, different message and format. Pick one by setting <code>variant</code> in <code>src/technical-executive/index.md</code>.</p>
+<div class="variants">
+{%- for key, v in course.variants %}
+<a class="variant" href="/technical-executive/{{ 'abcd'[loop.index0] }}/"><p class="k">{{ v.label }}</p><h2>{{ v.title }}</h2><p>{{ v.summary }}</p><span class="go">OPEN VARIANT →</span></a>
+{%- endfor %}
+</div>
+</div></section>

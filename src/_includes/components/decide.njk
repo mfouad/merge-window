@@ -1,0 +1,8 @@
+{#- Yes/no decision steps ending in a verdict. Data comes from a ```decide block. #}
+<ol class="decide" aria-label="Decision lens">
+{%- for s in block.steps %}
+<li><div class="step"><div class="q"><i>{{ loop.index | pad2 }}</i><span>{{ s.ask }}</span></div><div class="no"><b>NO →</b>{{ s.no }}</div></div></li>
+<li class="yes">YES</li>
+{%- endfor %}
+<li><div class="verdict"><b>{{ block.verdict.label }}</b><span>{{ block.verdict.text }}</span></div></li>
+</ol>

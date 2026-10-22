@@ -1,0 +1,11 @@
+{#- Colored layer cards, numbered in order. Data comes from a ```layers block (a list). #}
+<div class="layers">
+{%- for l in block %}
+<div class="layer l{{ loop.index }}"><span class="ic">{% include "icons/" ~ l.icon ~ ".svg" %}</span>
+<span class="k">LAYER {{ loop.index | pad2 }} · {{ l.kind }}</span><h3>{{ l.title }}</h3>
+<div>{{ l.text | md }}
+{%- if l.points %}<ul>{% for p in l.points %}<li>{{ p | mdi }}</li>{% endfor %}</ul>{% endif %}
+{%- if l.question %}<p class="q">“{{ l.question }}”</p>{% endif %}
+{%- if l.example %}<span class="eg">{{ l.example }}</span>{% endif %}</div></div>
+{%- endfor %}
+</div>

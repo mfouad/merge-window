@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Merge Window">
+<title>Merge Window</title>
+<desc>A git branch symbol over three radar rings</desc>
+<rect width="512" height="512" fill="#F4F1EA"/><g transform="translate(256 256) scale(1) translate(-256 -256)"><defs><mask id="k-b" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+<rect width="512" height="512" fill="#fff"/>
+<path d="M216 186 V326 M310 216 V232 C310 290 216 278 216 326" fill="none" stroke="#000" stroke-width="48" stroke-linecap="round"/>
+<circle cx="216" cy="160" r="44"/><circle cx="216" cy="352" r="44"/><circle cx="310" cy="190" r="44"/>
+</mask></defs>
+<g mask="url(#k-b)" fill="none" stroke="#10151C" stroke-opacity="0.3" stroke-width="10">
+<circle cx="256" cy="256" r="70"/><circle cx="256" cy="256" r="130"/><circle cx="256" cy="256" r="190"/>
+</g>
+<path d="M216 186 V326 M310 216 V232 C310 290 216 278 216 326" fill="none" stroke="#10151C" stroke-width="18" stroke-linecap="round"/>
+<circle cx="216" cy="160" r="26" fill="none" stroke="#10151C" stroke-width="16"/>
+<circle cx="216" cy="352" r="26" fill="none" stroke="#10151C" stroke-width="16"/>
+<circle cx="310" cy="190" r="34" fill="#E8A33D"/></g>
+</svg>

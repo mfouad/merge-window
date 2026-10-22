@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{%- set pageTitle = (metaTitle or title) ~ " · " ~ site.name if (metaTitle or title) else site.name ~ " · " ~ site.tagline %}
+{%- set pageDescription = description or site.description %}
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDescription }}">
+<meta name="theme-color" content="#10151C">
+{%- if noindex %}
+<meta name="robots" content="noindex">
+{%- endif %}
+<meta property="og:title" content="{{ metaTitle or title or (site.name ~ ' · ' ~ site.tagline) }}">
+<meta property="og:description" content="{{ pageDescription }}">
+<meta property="og:type" content="{{ 'article' if tags and 'posts' in tags else 'website' }}">
+<meta property="og:image" content="{{ site.url }}{{ site.ogImage }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/source-serif-4-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=7">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+{%- if site.announce %}
+<div class="announce"><a href="{{ site.announce.url }}"><span class="pill">{{ site.announce.label }}</span> {{ site.announce.text }} <span aria-hidden="true">→</span></a></div>
+{%- endif %}
+<header class="site-header"><div class="wrap">
+<a class="brand" href="/"><img src="/assets/img/logo-mark.svg" alt="" width="40" height="40">{{ site.name }}</a>
+<nav class="nav" aria-label="Main">
+{%- for item in site.nav %}
+<a{% if item.hideOnPhone %} class="hide-sm"{% endif %} href="{{ item.url }}"{% if item.section and item.section == section %} aria-current="page"{% endif %}>{{ item.label }}</a>
+{%- endfor %}
+<a class="btn amber" href="{{ site.cta.url }}">{{ site.cta.label }}</a>
+</nav></div></header>
+<main id="main">
+{{ content | safe }}
+</main>
+<footer class="site-footer"><div class="wrap"><span>{{ site.name }} · {{ site.tagline }}. By {{ site.author }}.</span><span><a href="{{ site.cta.url }}">{{ site.cta.label }}</a> · <a href="{{ site.calendar }}" rel="noopener">Book a call</a> · <a href="{{ site.linkedin }}" rel="noopener">LinkedIn</a></span></div></footer>
+</body>
+</html>

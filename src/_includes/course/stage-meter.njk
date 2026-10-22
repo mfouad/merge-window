@@ -1,0 +1,5 @@
+{#- Six-step meter showing where topic `t` sits on the stage scale. #}
+<div class="meter t{{ tIndex }}" aria-label="Stage: {{ t.stage }}">
+<span class="meter-bar" aria-hidden="true">{% for s in course.stages %}<i{% if loop.index >= t.from and loop.index <= t.to %} class="on"{% endif %}></i>{% endfor %}</span>
+<span class="meter-text">{{ course.stages[t.from - 1].name }}{% if t.to != t.from %} → {{ course.stages[t.to - 1].name }}{% endif %}</span>
+</div>

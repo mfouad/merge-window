@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+section: course
+---
+{%- set v = course.variants[variant] %}
+<div class="cr cr-{{ variant }}">
+{% include "course/" ~ variant ~ ".njk" %}
+</div>
+<script>
+(function(){
+  // Stage picker: highlight the topics that cover the chosen stage.
+  var buttons=[].slice.call(document.querySelectorAll('.stage-picker button'));
+  var items=[].slice.call(document.querySelectorAll('[data-from][data-to]'));
+  var out=document.querySelector('.picker-result');
+  buttons.forEach(function(b){b.addEventListener('click',function(){
+    var on=b.getAttribute('aria-pressed')!=='true', n=+b.dataset.stage, count=0;
+    buttons.forEach(function(x){x.setAttribute('aria-pressed',x===b&&on?'true':'false')});
+    items.forEach(function(el){var hit=!on||(n>=+el.dataset.from&&n<=+el.dataset.to);el.classList.toggle('dim',!hit);if(hit&&on&&el.classList.contains('tcard'))count++});
+    if(out)out.textContent=on?count+' of '+document.querySelectorAll('.tcard').length+' modules deal with the "'+b.querySelector('b').textContent+'" stage.':out.dataset.default;
+  })});
+})();
+</script>

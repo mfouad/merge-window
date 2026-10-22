@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+title: Subscribe
+description: Get each Merge Window radar release by email.
+section: subscribe
+---
+{%- set n = site.newsletter %}
+<section class="cr-hero"><div class="wrap cr-hero-grid">
+<div>
+<p class="eyebrow">{{ n.eyebrow }}</p>
+<h1>{{ n.title }}</h1>
+<p class="lead">{{ n.lead }}</p>
+<ul class="sub-list">{% for i in n.includes %}<li>{{ i }}</li>{% endfor %}</ul>
+</div>
+<div class="cr-card"><p class="eyebrow">{{ n.form.heading }}</p>{% set form = n.form %}{% include "signup-form.njk" %}</div>
+</div></section>

@@ -1,0 +1,16 @@
+{#- One topic. Set `t` and `tIndex`; `painFirst` makes the pain the headline. #}
+<article class="tcard t{{ tIndex }}" id="topic-{{ t.id }}" data-from="{{ t.from }}" data-to="{{ t.to }}">
+<p class="tcard-k">{{ tIndex | pad2 }} · {{ "The pain" if painFirst else "Module" }}</p>
+{%- if painFirst %}
+<h3 class="tcard-pain">“{{ t.pain }}”</h3>
+<p class="tcard-title">{{ t.title }}</p>
+{%- else %}
+<h3>{{ t.title }}</h3>
+<p class="tcard-quote">“{{ t.pain }}”</p>
+{%- endif %}
+{% include "course/stage-meter.njk" %}
+<p class="tcard-stage">{{ t.stage }}</p>
+<details><summary>What the course covers <span>{{ t.items | length }} lessons</span></summary>
+<ul>{% for i in t.items %}<li><b>{{ i.title }}.</b> {{ i.text }}</li>{% endfor %}</ul>
+</details>
+</article>

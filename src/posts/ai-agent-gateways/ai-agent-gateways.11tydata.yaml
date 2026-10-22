@@ -1,0 +1,115 @@
+# Platforms for this post. Feeds the ```compare table and the ```platforms cards.
+# Entries without a repo (techniques) appear in the table only.
+# Facts checked 22 Oct 2026 against each repository.
+platforms:
+  - id: agentgateway
+    name: agentgateway
+    ring: PILOT
+    evidence: researched
+    license: Apache 2.0
+    layers: Auth · Policy · Audit
+    approach: Agent-native gateway for MCP, A2A and LLM traffic
+    governance: Linux Foundation
+    governanceDetail: Linux Foundation project
+    release: { version: v1.6.0, date: 2 Oct 2026 }
+    repo: github.com/agentgateway/agentgateway
+    body: |
+      **What it is.** A proxy built for agent traffic: MCP, A2A and LLM calls. It competes with general-purpose API gateways that treat these as ordinary HTTP.
+
+      **Why it's interesting now.** It is a Linux Foundation project rather than a single-vendor product, and one of the few that covers several layers (auth, policy, audit) in one data plane. The repository dates from March 2025, so it is young.
+
+  - id: pomerium
+    name: Pomerium
+    ring: PILOT
+    evidence: researched
+    license: Apache 2.0
+    layers: Auth · Policy
+    approach: Identity-aware proxy with tool-level authorization
+    governance: Vendor-led
+    release: { version: v0.33.4, date: 2 Oct 2026, note: "Still 0.x, so expect change between releases." }
+    repo: github.com/pomerium/pomerium
+    body: |
+      **What it is.** An identity and context-aware access proxy, extended to authorize at the tool level. It replaces or complements VPN-style and per-app access controls.
+
+      **Why it's interesting now.** Around since 2019, so it brings years of production use to a new problem: knowing which human an agent is acting for. Worth a look when identity is the first question.
+
+  - id: contextforge
+    name: ContextForge
+    ring: WATCH
+    evidence: researched
+    license: Apache 2.0
+    layers: Registry · Policy
+    approach: Registry and proxy federating MCP, A2A and REST
+    governance: IBM
+    release: { version: v1.1.0, date: 20 Oct 2026 }
+    repo: github.com/IBM/mcp-context-forge
+    body: |
+      **What it is.** A registry and proxy that federates MCP servers, A2A agents and REST/gRPC APIs behind one endpoint, with plugins and guardrails.
+
+      **Why it's interesting now.** It targets the first problem many organizations hit: tools sprawling across teams and nobody knowing what exists. The project began in May 2025 and reached v1.1.0 in October 2026.
+
+  - id: agent-router
+    name: Agent Router
+    aka: formerly Envoy AI Gateway
+    ring: WATCH
+    evidence: researched
+    license: Apache 2.0
+    layers: Cost · Routing · Auth
+    approach: AI extension of an existing proxy
+    governance: Agentic AI Foundation
+    governanceDetail: Agentic AI Foundation project
+    release: { version: v1.2.0, date: 7 Oct 2026 }
+    repo: github.com/theagentrouter/agent-router
+    body: |
+      **What it is.** Unified access to generative AI services, built on Envoy Gateway. It extends a proxy many teams already run instead of adding a new one.
+
+      **Why it's interesting now.** The project was renamed and moved to the Agentic AI Foundation; the README says the code, maintainers, release cadence and license are unchanged, and old repository links redirect. Worth knowing if you search for the old name.
+
+  - id: opa
+    name: Open Policy Agent
+    ring: ADOPT
+    evidence: "[CHECK]"
+    license: Apache 2.0
+    layers: Policy
+    approach: Policy engine behind the gateway
+    governance: CNCF
+    release: { version: v1.21.3, date: 19 Oct 2026 }
+    repo: github.com/open-policy-agent/opa
+    body: |
+      **What it is.** A general-purpose policy engine. Rules are written as code and queried over an API, which makes it a common engine behind a gateway's allow/deny decision.
+
+      **Why it's interesting now.** Not new (the repository dates from 2015), but it is the proven piece of the stack: a CNCF project that gateways in this space integrate with.
+
+  - id: litellm
+    name: LiteLLM
+    evidence: researched
+    license: MIT + commercial
+    licenseDetail: "MIT core + commercial `enterprise/`"
+    layers: Cost · Routing
+    approach: LLM proxy with budgets and provider routing
+    governance: Vendor-led (BerriAI)
+    release: { version: v1.106.2, date: 21 Oct 2026 }
+    repo: github.com/BerriAI/litellm
+    body: |
+      **What it is.** An LLM proxy that exposes 100+ providers in the OpenAI format, with cost tracking, budgets, load balancing and guardrails. It is the usual example of the cost layer.
+
+      **Maturity & risk.** Around since 2023 and very widely used. Read the license closely: the repository is MIT outside its `enterprise/` directory, which is under a separate commercial license, and some features are gated to the paid tier.
+
+  - id: cedar
+    name: Cedar
+    evidence: researched
+    license: Apache 2.0
+    layers: Policy
+    approach: Policy language and engine
+    governance: "[CHECK]"
+    release: { version: cedar-policy-cli v4.14.0, date: 17 Oct 2026 }
+    repo: github.com/cedar-policy/cedar
+    body: |
+      **What it is.** A policy language and evaluation engine, an alternative to OPA's Rego for authorization rules.
+
+      **Maturity & risk.** Repository created April 2023 and actively released.
+
+  - id: app-code-checks
+    name: Checks scattered in app code
+    ring: PASS
+    approach: "Technique: hard to audit as tools multiply"

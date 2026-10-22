@@ -1,0 +1,18 @@
+{% include "course/hero.njk" %}
+<section class="section cr-band"><div class="wrap">
+<p class="eyebrow">The stages</p>
+<h2>{{ v.sectionTitle }}</h2>
+<p class="sec-lead picker-result" data-default="{{ v.sectionLead }}" aria-live="polite">{{ v.sectionLead }}</p>
+{%- set picker = true %}
+{% include "course/stage-map.njk" %}
+</div></section>
+<section class="section"><div class="wrap">
+<p class="eyebrow">The topics</p>
+<h2>What the course covers</h2>
+<div class="tgrid">
+{%- for t in course.topics %}{% set tIndex = loop.index %}
+{% include "course/topic-card.njk" %}
+{%- endfor %}
+</div>
+</div></section>
+{% include "course/close.njk" %}

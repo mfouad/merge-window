@@ -1,0 +1,23 @@
+{#- Signup form. Set `form` to a config with systeme.scriptId/scriptSrc, button, note.
+    Uses the Systeme.io script when set, otherwise a styled preview that sends nothing.
+    One per page; other buttons link to #signup. #}
+<div class="cr-form" id="signup">
+{%- if form.systeme.scriptSrc %}
+<script id="{{ form.systeme.scriptId }}" src="{{ form.systeme.scriptSrc }}"></script>
+{%- else %}
+<form class="signup" data-preview>
+<label><span>First name</span><input name="first_name" autocomplete="given-name"></label>
+<label><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@company.com"></label>
+<button class="btn amber" type="submit">{{ form.button }}</button>
+</form>
+<p class="cr-preview" role="status">Preview only: the Systeme.io form is not connected yet.</p>
+{%- endif %}
+{%- if form.note %}
+<p class="cr-note">{{ form.note }}</p>
+{%- endif %}
+</div>
+<script>
+document.querySelectorAll('form[data-preview]').forEach(function(f){
+  f.addEventListener('submit',function(e){e.preventDefault();var s=f.parentNode.querySelector('.cr-preview');if(s)s.textContent='Preview only: nothing was sent. Add the Systeme.io script to connect this form.'});
+});
+</script>

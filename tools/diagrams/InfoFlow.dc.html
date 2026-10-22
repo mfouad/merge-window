@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Infographic: how an action gateway handles a tool call</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBFAF6}
+</style>
+</helmet>
+<div style="width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #FBFAF6; color: #10151C; font-family: 'IBM Plex Sans', system-ui, sans-serif">
+
+<div style="position: absolute; left: 60px; top: 56px; right: 60px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 18px; letter-spacing: 2px; color: #5A5E66"><span style="display: flex; align-items: center; gap: 12px; letter-spacing: 0"><svg width="68" height="68" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="70" fill="none" stroke="#10151C" stroke-opacity="0.3" stroke-width="12"></circle><circle cx="256" cy="256" r="130" fill="none" stroke="#10151C" stroke-opacity="0.3" stroke-width="12"></circle><circle cx="256" cy="256" r="190" fill="none" stroke="#10151C" stroke-opacity="0.3" stroke-width="12"></circle><path d="M216 186 V326 M310 216 V232 C310 290 216 278 216 326" fill="none" stroke="#FBFAF6" stroke-width="48" stroke-linecap="round"></path><circle cx="216" cy="160" r="44" fill="#FBFAF6"></circle><circle cx="216" cy="352" r="44" fill="#FBFAF6"></circle><circle cx="310" cy="190" r="44" fill="#FBFAF6"></circle><path d="M216 186 V326 M310 216 V232 C310 290 216 278 216 326" fill="none" stroke="#10151C" stroke-width="20" stroke-linecap="round"></path><circle cx="216" cy="160" r="26" fill="#FBFAF6" stroke="#10151C" stroke-width="18"></circle><circle cx="216" cy="352" r="26" fill="#FBFAF6" stroke="#10151C" stroke-width="18"></circle><circle cx="310" cy="190" r="36" fill="#E8A33D"></circle></svg><span style="font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 42px; letter-spacing: -0.5px; color: #10151C">Merge Window</span><span style="letter-spacing: 2px">· EXPLAINED</span></span><span>AI ACTION GATEWAYS</span></div>
+<h1 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 54px; line-height: 1.05; letter-spacing: -1px">How an AI action gateway handles a tool call</h1>
+</div>
+
+<div style="position: absolute; left: 60px; top: 300px; width: 190px; height: 790px; box-sizing: border-box; border-radius: 18px; background: #10151C; color: #F4F1EA; padding: 24px 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#F4F1EA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="3"></rect><path d="M12 3v4M9 12h.01M15 12h.01M9 16h6"></path></svg>
+<span style="font-size: 24px; font-weight: 600">AI agent</span>
+<span style="font-size: 16px; color: #D8D4CB; line-height: 1.4">Decides it needs a tool, for example "refund order 4821"</span>
+<span style="flex-grow: 1"></span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: {{accent}}">gets the result</span>
+</div>
+
+<div style="position: absolute; left: 250px; top: 346px; width: 70px; height: 3px; background: #10151C"></div>
+<div style="position: absolute; left: 304px; top: 336px; font-size: 22px; line-height: 1" aria-hidden="true">▶</div>
+<div style="position: absolute; left: 250px; top: 1044px; width: 70px; height: 3px; background: #10151C"></div>
+<div style="position: absolute; left: 248px; top: 1034px; font-size: 22px; line-height: 1" aria-hidden="true">◀</div>
+
+<div style="position: absolute; left: 320px; top: 280px; width: 460px; height: 830px; box-sizing: border-box; border: 3px dashed {{accent}}; border-radius: 22px"></div>
+<div style="position: absolute; left: 344px; top: 266px; padding: 2px 10px; background: #FBFAF6; font-family: 'IBM Plex Mono', monospace; font-size: 16px; letter-spacing: 2px; color: #8A5A12; font-weight: 500">ACTION GATEWAY</div>
+
+<div style="position: absolute; left: 344px; top: 304px; width: 412px; height: 86px; box-sizing: border-box; border-radius: 14px; background: #FFFFFF; border: 2px solid #10151C; padding: 12px 16px; display: flex; gap: 14px; align-items: center">
+<span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: #10151C; color: #F4F1EA; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 17px">1</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 0 1-12 0zM12 17v5"></path></svg><div><div style="font-size: 20px; font-weight: 600">Receive the call</div><div style="font-size: 15px; color: #3A3F47">MCP tools/call, A2A task or API request</div></div>
+</div>
+<div style="position: absolute; left: 344px; top: 416px; width: 412px; height: 86px; box-sizing: border-box; border-radius: 14px; background: #DCE9F7; padding: 12px 16px; display: flex; gap: 14px; align-items: center">
+<span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: #10151C; color: #F4F1EA; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 17px">2</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l9-9M17 6l3 3M15 8l2 2"></path></svg><div><div style="font-size: 20px; font-weight: 600">Authenticate</div><div style="font-size: 15px; color: #3A3F47">Which agent, acting for which user</div></div>
+</div>
+<div style="position: absolute; left: 344px; top: 528px; width: 412px; height: 86px; box-sizing: border-box; border-radius: 14px; background: #F7E3BF; padding: 12px 16px; display: flex; gap: 14px; align-items: center">
+<span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: #10151C; color: #F4F1EA; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 17px">3</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg><div style="flex-grow: 1"><div style="font-size: 20px; font-weight: 600">Authorize</div><div style="font-size: 15px; color: #3A3F47">Is this tool, with these arguments, allowed?</div></div>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; padding: 4px 8px; border-radius: 6px; background: #10151C; color: #F4F1EA">deny 403</span>
+</div>
+<div style="position: absolute; left: 344px; top: 640px; width: 412px; height: 86px; box-sizing: border-box; border-radius: 14px; background: #E3EBD9; padding: 12px 16px; display: flex; gap: 14px; align-items: center">
+<span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: #10151C; color: #F4F1EA; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 17px">4</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M4 18a8 8 0 1 1 16 0"></path><path d="M12 18l4-6"></path></svg><div style="flex-grow: 1"><div style="font-size: 20px; font-weight: 600">Apply limits</div><div style="font-size: 15px; color: #3A3F47">Rate, quota and cost caps per agent</div></div>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; padding: 4px 8px; border-radius: 6px; background: #10151C; color: #F4F1EA">limit 429</span>
+</div>
+<div style="position: absolute; left: 344px; top: 752px; width: 412px; height: 86px; box-sizing: border-box; border-radius: 14px; background: #FFFFFF; border: 2px solid #10151C; padding: 12px 16px; display: flex; gap: 14px; align-items: center">
+<span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: #10151C; color: #F4F1EA; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 17px">5</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M3 12h7M10 12l5-6h5M10 12l5 6h5"></path></svg><div><div style="font-size: 20px; font-weight: 600">Forward to the tool</div><div style="font-size: 15px; color: #3A3F47">With the right credentials, never the agent's</div></div>
+</div>
+<div style="position: absolute; left: 344px; top: 864px; width: 412px; height: 86px; box-sizing: border-box; border-radius: 14px; background: #E9E4D8; padding: 12px 16px; display: flex; gap: 14px; align-items: center">
+<span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: #10151C; color: #F4F1EA; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 17px">6</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M9 8h6M9 12h6M9 16h4"></path></svg><div><div style="font-size: 20px; font-weight: 600">Record the decision</div><div style="font-size: 15px; color: #3A3F47">Who, which tool, arguments, allow or deny</div></div>
+</div>
+<div style="position: absolute; left: 344px; top: 1000px; width: 412px; height: 86px; box-sizing: border-box; border-radius: 14px; background: {{accent}}; padding: 12px 16px; display: flex; gap: 14px; align-items: center">
+<span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: #10151C; color: #F4F1EA; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 17px">7</span>
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 10l-5 5 5 5"></path><path d="M20 4v7a4 4 0 0 1-4 4H4"></path></svg><div><div style="font-size: 20px; font-weight: 600">Return the result</div><div style="font-size: 15px; color: #10151C">Back to the agent, with the audit trail intact</div></div>
+</div>
+
+<div style="position: absolute; left: 756px; top: 458px; width: 84px; height: 3px; background: #7A8089"></div>
+<div style="position: absolute; left: 756px; top: 570px; width: 84px; height: 3px; background: #7A8089"></div>
+<div style="position: absolute; left: 756px; top: 794px; width: 84px; height: 3px; background: #7A8089"></div>
+<div style="position: absolute; left: 756px; top: 906px; width: 84px; height: 3px; background: #7A8089"></div>
+
+<div style="position: absolute; left: 840px; top: 416px; width: 180px; height: 86px; box-sizing: border-box; border-radius: 14px; border: 2px solid #10151C; background: #FFFFFF; padding: 10px 14px; display: flex; align-items: center; gap: 10px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg><span><b style="font-size: 17px">Identity provider</b><br><span style="font-size: 14px; color: #3A3F47">OIDC, JWT, keys</span></span></div>
+<div style="position: absolute; left: 840px; top: 528px; width: 180px; height: 86px; box-sizing: border-box; border-radius: 14px; border: 2px solid #10151C; background: #FFFFFF; padding: 10px 14px; display: flex; align-items: center; gap: 10px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><circle cx="6" cy="5" r="2"></circle><circle cx="6" cy="19" r="2"></circle><circle cx="18" cy="7" r="2"></circle><path d="M6 7v10M18 9c0 5-12 3-12 8"></path></svg><span><b style="font-size: 17px">Policy engine</b><br><span style="font-size: 14px; color: #3A3F47">rules as code, OPA</span></span></div>
+<div style="position: absolute; left: 840px; top: 752px; width: 180px; height: 86px; box-sizing: border-box; border-radius: 14px; border: 2px solid #10151C; background: #FFFFFF; padding: 10px 14px; display: flex; align-items: center; gap: 10px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M12 3l8 4v10l-8 4-8-4V7z"></path><path d="M4 7l8 4 8-4M12 11v10"></path></svg><span><b style="font-size: 17px">Tools</b><br><span style="font-size: 14px; color: #3A3F47">MCP servers, APIs</span></span></div>
+<div style="position: absolute; left: 840px; top: 864px; width: 180px; height: 86px; box-sizing: border-box; border-radius: 14px; border: 2px solid #10151C; background: #FFFFFF; padding: 10px 14px; display: flex; align-items: center; gap: 10px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg><span><b style="font-size: 17px">Audit store</b><br><span style="font-size: 14px; color: #3A3F47">logs, SIEM</span></span></div>
+
+<div style="position: absolute; left: 60px; top: 1136px; right: 60px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div style="border-radius: 14px; background: #10151C; color: #F4F1EA; padding: 16px 18px; font-size: 17px; line-height: 1.35; display: flex; align-items: center; gap: 12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M4 21V10a8 8 0 0 1 16 0v11"></path><path d="M2 21h20M9 21v-5a3 3 0 0 1 6 0v5"></path></svg><span>Checks live in one place, not in every agent</span></div>
+<div style="border-radius: 14px; background: #10151C; color: #F4F1EA; padding: 16px 18px; font-size: 17px; line-height: 1.35; display: flex; align-items: center; gap: 12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span>Agents never hold tool credentials</span></div>
+<div style="border-radius: 14px; background: #10151C; color: #F4F1EA; padding: 16px 18px; font-size: 17px; line-height: 1.35; display: flex; align-items: center; gap: 12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 12a8 8 0 1 1-2.3-5.7"></path><path d="M20 4v5h-5"></path></svg><span>Every action can be replayed for review</span></div>
+</div>
+
+<div style="position: absolute; left: 60px; right: 60px; bottom: 40px; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 17px; color: #5A5E66"><span>Mohammad Hassan · Merge Window</span><span>Save this for your next architecture review</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#E8A33D","options":["#E8A33D","#7DB3E8","#E07A5F","#9AD1B9"]},"$preview":{"width":1080,"height":1350}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#E8A33D' };
+}
+}
+</script>
+</body>
+</html>

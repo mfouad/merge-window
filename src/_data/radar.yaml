@@ -1,0 +1,11 @@
+# How the radar reads: the rings and the evidence tags.
+rings:
+  - { name: ADOPT, text: Proven and ready to build on. }
+  - { name: PILOT, text: Worth experimenting with. }
+  - { name: WATCH, text: "Early, worth keeping an eye on." }
+  - { name: PASS, text: "Interesting, but with caveats." }
+
+evidence:
+  - { name: hands-on, text: I used it myself. }
+  - { name: community, text: Someone in my network runs it. Credited by name. }
+  - { name: researched, text: "Read and assessed against the repository and docs, not yet used." }

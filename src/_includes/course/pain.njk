@@ -1,0 +1,19 @@
+{% include "course/hero.njk" %}
+<section class="section"><div class="wrap">
+<p class="eyebrow">The problems</p>
+<h2>{{ v.sectionTitle }}</h2>
+<p class="sec-lead">{{ v.sectionLead }}</p>
+<div class="tgrid">
+{%- set painFirst = true %}
+{%- for t in course.topics %}{% set tIndex = loop.index %}
+{% include "course/topic-card.njk" %}
+{%- endfor %}
+</div>
+</div></section>
+<section class="section cr-band"><div class="wrap">
+<p class="eyebrow">The stages</p>
+<h2>Where each module fits</h2>
+<p class="sec-lead">From the first version of the product to several teams. Most companies hit two or three of these at once.</p>
+{% include "course/stage-map.njk" %}
+</div></section>
+{% include "course/close.njk" %}

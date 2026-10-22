@@ -1,0 +1,14 @@
+{#- The gateway diagram: caller → gateway checks → targets. Data comes from a ```gate block. #}
+<figure class="fig wide">
+<div class="gate" role="img" aria-label="{{ block.description }}">
+<div class="node"><small>{{ block.caller.label }}</small><b>{{ block.caller.title }}</b><span>{{ block.caller.text }}</span></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="core"><span class="label">{% include "icons/gate.svg" %}{{ block.gateway.label }}</span>
+<div class="four">{% for c in block.gateway.checks %}<div><b>{{ c.title }}</b>{{ c.text }}</div>{% endfor %}</div></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="node"><small>{{ block.targets.label }}</small><b>{{ block.targets.title }}</b><span>{{ block.targets.text }}</span></div>
+</div>
+{%- if block.caption %}
+<figcaption>{{ block.caption }}</figcaption>
+{%- endif %}
+</figure>

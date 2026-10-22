@@ -1,0 +1,3 @@
+# Defaults for every post in this folder.
+layout: layouts/post.njk
+tags: posts

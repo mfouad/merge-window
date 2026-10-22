@@ -1,0 +1,5 @@
+# Draft variants of the course page, kept out of search and the sitemap.
+layout: layouts/course.njk
+noindex: true
+eleventyExcludeFromCollections: true
+title: The Technical Executive

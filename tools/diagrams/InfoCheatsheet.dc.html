@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Infographic: AI action gateways cheat sheet</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBFAF6}
+</style>
+</helmet>
+<div style="width: 1080px; height: 1350px; box-sizing: border-box; padding: 56px 60px 40px; background: #FBFAF6; color: #10151C; font-family: 'IBM Plex Sans', system-ui, sans-serif; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 18px; letter-spacing: 2px; color: #5A5E66"><span style="display: flex; align-items: center; gap: 12px; letter-spacing: 0"><svg width="68" height="68" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="70" fill="none" stroke="#10151C" stroke-opacity="0.3" stroke-width="12"></circle><circle cx="256" cy="256" r="130" fill="none" stroke="#10151C" stroke-opacity="0.3" stroke-width="12"></circle><circle cx="256" cy="256" r="190" fill="none" stroke="#10151C" stroke-opacity="0.3" stroke-width="12"></circle><path d="M216 186 V326 M310 216 V232 C310 290 216 278 216 326" fill="none" stroke="#FBFAF6" stroke-width="48" stroke-linecap="round"></path><circle cx="216" cy="160" r="44" fill="#FBFAF6"></circle><circle cx="216" cy="352" r="44" fill="#FBFAF6"></circle><circle cx="310" cy="190" r="44" fill="#FBFAF6"></circle><path d="M216 186 V326 M310 216 V232 C310 290 216 278 216 326" fill="none" stroke="#10151C" stroke-width="20" stroke-linecap="round"></path><circle cx="216" cy="160" r="26" fill="#FBFAF6" stroke="#10151C" stroke-width="18"></circle><circle cx="216" cy="352" r="26" fill="#FBFAF6" stroke="#10151C" stroke-width="18"></circle><circle cx="310" cy="190" r="36" fill="#E8A33D"></circle></svg><span style="font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 42px; letter-spacing: -0.5px; color: #10151C">Merge Window</span><span style="letter-spacing: 2px">· CHEAT SHEET</span></span><span>AI ACTION GATEWAYS</span></div>
+<h1 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 54px; line-height: 1.05; letter-spacing: -1px">4 ways to put a gate in front of agent actions</h1>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px">
+<div style="border-radius: 18px; background: #DCE9F7; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V10a8 8 0 0 1 16 0v11"></path><path d="M2 21h20M9 21v-5a3 3 0 0 1 6 0v5"></path></svg><span style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; font-weight: 500">01</span><span style="font-size: 25px; font-weight: 600">Agent-native gateway</span></div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500">
+<span style="padding: 8px 10px; border-radius: 8px; background: #FFFFFF">Agent</span><span aria-hidden="true">→</span>
+<span style="padding: 8px 10px; border-radius: 8px; background: #10151C; color: #F4F1EA">MCP-aware gateway</span><span aria-hidden="true">→</span>
+<span style="padding: 8px 10px; border-radius: 8px; background: #FFFFFF">Tools</span>
+</div>
+<div style="font-size: 17px; line-height: 1.45"><b>Fits when:</b> you are starting fresh and want policies written in terms of tools and agents.</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #3A3F47">e.g. agentgateway</div>
+</div>
+<div style="border-radius: 18px; background: #F7E3BF; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1"></rect><rect x="14" y="4" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; font-weight: 500">02</span><span style="font-size: 25px; font-weight: 600">Federating registry</span></div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500">
+<span style="padding: 8px 10px; border-radius: 8px; background: #FFFFFF">Agent</span><span aria-hidden="true">→</span>
+<span style="padding: 8px 10px; border-radius: 8px; background: #10151C; color: #F4F1EA">One catalog</span><span aria-hidden="true">→</span>
+<span style="padding: 8px 10px; border-radius: 8px; background: #FFFFFF">Many tools</span>
+</div>
+<div style="font-size: 17px; line-height: 1.45"><b>Fits when:</b> tools are sprawling across teams and discovery is the first problem.</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #3A3F47">e.g. ContextForge</div>
+</div>
+<div style="border-radius: 18px; background: #E3EBD9; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l9-9M17 6l3 3M15 8l2 2"></path></svg><span style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; font-weight: 500">03</span><span style="font-size: 25px; font-weight: 600">Identity-aware proxy</span></div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500">
+<span style="padding: 8px 10px; border-radius: 8px; background: #FFFFFF">User + agent</span><span aria-hidden="true">→</span>
+<span style="padding: 8px 10px; border-radius: 8px; background: #10151C; color: #F4F1EA">Zero-trust proxy</span><span aria-hidden="true">→</span>
+<span style="padding: 8px 10px; border-radius: 8px; background: #FFFFFF">Tool</span>
+</div>
+<div style="font-size: 17px; line-height: 1.45"><b>Fits when:</b> knowing which human an agent acts for matters most.</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #3A3F47">e.g. Pomerium</div>
+</div>
+<div style="border-radius: 18px; background: #E9E4D8; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 0 1-12 0zM12 17v5"></path></svg><span style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; font-weight: 500">04</span><span style="font-size: 25px; font-weight: 600">Extend your proxy</span></div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500">
+<span style="padding: 8px 10px; border-radius: 8px; background: #FFFFFF">Agent</span><span aria-hidden="true">→</span>
+<span style="padding: 8px 10px; border-radius: 8px; background: #10151C; color: #F4F1EA">Proxy + policy engine</span><span aria-hidden="true">→</span>
+<span style="padding: 8px 10px; border-radius: 8px; background: #FFFFFF">Tools</span>
+</div>
+<div style="font-size: 17px; line-height: 1.45"><b>Fits when:</b> you already run that proxy and want one less system.</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #3A3F47">e.g. Envoy AI Gateway + OPA</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 17px; letter-spacing: 2px; color: #5A5E66">WHAT TO EVALUATE, WHICHEVER YOU PICK</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+<div style="border: 2px solid #10151C; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: center">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l9-9M17 6l3 3M15 8l2 2"></path></svg>
+<div><div style="font-size: 18px; font-weight: 600">Identity</div><div style="font-size: 14px; color: #3A3F47">Agent and on-behalf-of user</div></div>
+</div>
+<div style="border: 2px solid #10151C; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: center">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+<div><div style="font-size: 18px; font-weight: 600">Policy depth</div><div style="font-size: 14px; color: #3A3F47">Per tool, per argument</div></div>
+</div>
+<div style="border: 2px solid #10151C; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: center">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"></path><path d="M12 18l4-6"></path></svg>
+<div><div style="font-size: 18px; font-weight: 600">Limits</div><div style="font-size: 14px; color: #3A3F47">Rate, quota, cost</div></div>
+</div>
+<div style="border: 2px solid #10151C; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: center">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"></path></svg>
+<div><div style="font-size: 18px; font-weight: 600">Audit</div><div style="font-size: 14px; color: #3A3F47">Replayable decisions</div></div>
+</div>
+<div style="border: 2px solid #10151C; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: center">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 4l-4 16"></path></svg>
+<div><div style="font-size: 18px; font-weight: 600">Protocols</div><div style="font-size: 14px; color: #3A3F47">MCP, A2A, REST</div></div>
+</div>
+<div style="border: 2px solid #10151C; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: center">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10151C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4H5v16h5M14 8l4 4-4 4M18 12H9"></path></svg>
+<div><div style="font-size: 18px; font-weight: 600">Exit cost</div><div style="font-size: 14px; color: #3A3F47">How portable are policies</div></div>
+</div>
+</div>
+</div>
+
+<div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 18px; border-top: 2px solid #D8D4CB; font-family: 'IBM Plex Mono', monospace; font-size: 17px; color: #5A5E66">
+<span>Mohammad Hassan · Merge Window</span><span style="display: flex; align-items: center; gap: 10px"><span style="width: 14px; height: 14px; border-radius: 50%; background: {{accent}}"></span>Not ranked. No paid placements.</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#E8A33D","options":["#E8A33D","#7DB3E8","#E07A5F","#9AD1B9"]},"$preview":{"width":1080,"height":1350}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#E8A33D' };
+}
+}
+</script>
+</body>
+</html>

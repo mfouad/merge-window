@@ -1,0 +1,8 @@
+{#- One card per platform, from this post's platforms data. Entries without a repo (techniques) are skipped. #}
+<div class="plat">
+{%- for p in platforms %}{% if p.repo %}
+<div class="card" id="{{ p.id }}"><header><h3>{{ p.name }}{% if p.aka %} <span class="aka">({{ p.aka }})</span>{% endif %}</h3><div class="tags"><span class="ring-tag {{ p.ring | ringClass }}">{{ p.ring or "NOT PLACED" }}</span><span class="tag">{{ "evidence: " if p.evidence == "[CHECK]" }}{{ p.evidence }}</span><span class="tag">{{ p.license }}</span></div></header>
+{{ p.body | md }}
+<dl>{% if p.governance %}<dt>Governance</dt><dd>{{ p.governanceDetail or p.governance }}</dd>{% endif %}{% if p.release %}<dt>Latest release</dt><dd>{{ p.release.version }}, {{ p.release.date }}{% if p.release.note %}. {{ p.release.note }}{% endif %}</dd>{% endif %}<dt>Source</dt><dd><a href="https://{{ p.repo }}" rel="noopener">{{ p.repo }}</a></dd></dl></div>
+{%- endif %}{% endfor %}
+</div>
