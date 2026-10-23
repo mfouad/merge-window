@@ -51,5 +51,6 @@ newsletter:
     button: Subscribe
     note: Unsubscribe anytime.
     systeme:
+      action: https://systeme.io/embedded/45995502/subscription
       scriptId: ""
       scriptSrc: ""

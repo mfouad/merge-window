@@ -1,8 +1,15 @@
-{#- Signup form. Set `form` to a config with systeme.scriptId/scriptSrc, button, note.
-    Uses the Systeme.io script when set, otherwise a styled preview that sends nothing.
+{#- Signup form. Set `form` to a config with systeme.action (or scriptId/scriptSrc), button, note.
+    With systeme.action the site's own form posts straight to Systeme.io. Otherwise uses the
+    Systeme.io script when set, else a styled preview that sends nothing.
     One per page; other buttons link to #signup. #}
 <div class="cr-form" id="signup">
-{%- if form.systeme.scriptSrc %}
+{%- if form.systeme.action %}
+<form class="signup" method="post" action="{{ form.systeme.action }}">
+<label><span>First name</span><input type="text" name="first_name" autocomplete="given-name"></label>
+<label><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@company.com"></label>
+<button class="btn amber" type="submit">{{ form.button }}</button>
+</form>
+{%- elif form.systeme.scriptSrc %}
 <script id="{{ form.systeme.scriptId }}" src="{{ form.systeme.scriptSrc }}"></script>
 {%- else %}
 <form class="signup" data-preview>

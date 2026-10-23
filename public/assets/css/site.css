@@ -283,6 +283,17 @@ td .ring-tag{font-family:var(--mono);font-size:12px;letter-spacing:1px;padding:3
 .cr-note{font-size:14px;color:var(--muted);margin:10px 0 0}
 .cr-preview{font-family:var(--mono);font-size:12px;letter-spacing:.3px;color:var(--amber-d);background:var(--amber-wash);border:1px dashed #E7D6B5;border-radius:8px;padding:6px 10px;margin:12px 0 0}
 .cr-preview.show{font-size:13px}
+/* Systeme.io embed: restyle whatever the script injects into #signup to match .signup above.
+   Element selectors on purpose, since Systeme's class names are generated. !important beats its inline styles. */
+.cr-form form{display:grid!important;gap:12px!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;max-width:none!important}
+.cr-form form>*{margin:0!important;max-width:none!important}
+.cr-form label{display:block!important;font-family:var(--sans)!important;font-size:14px!important;font-weight:500!important;color:var(--ink)!important;text-align:left!important}
+.cr-form input:not([type=checkbox]):not([type=radio]):not([type=hidden]){width:100%!important;min-height:48px!important;padding:12px 14px!important;font:inherit!important;font-size:17px!important;color:var(--ink)!important;background:#fff!important;border:1.5px solid var(--line)!important;border-radius:12px!important;box-shadow:none!important}
+.cr-form input::placeholder{color:var(--muted)!important;opacity:1!important}
+.cr-form input:focus{outline:3px solid var(--amber)!important;outline-offset:1px!important;border-color:var(--ink)!important}
+.cr-form button,.cr-form [type=submit],.cr-form [role=button]{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-height:48px!important;padding:12px 22px!important;font-family:var(--sans)!important;font-size:16px!important;font-weight:600!important;color:var(--ink)!important;background:var(--amber)!important;border:2px solid var(--amber)!important;border-radius:999px!important;box-shadow:none!important;text-transform:none!important;letter-spacing:0!important;cursor:pointer!important;transition:transform .15s,background .15s}
+.cr-form button:hover,.cr-form [type=submit]:hover,.cr-form [role=button]:hover{background:#f0b254!important;transform:translateY(-1px)}
+.cr-form p,.cr-form small{font-family:var(--sans)!important;font-size:14px!important;color:var(--muted)!important;text-align:left!important}
 
 .cr-band{background:var(--sand)}
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-top:28px}
